@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <link rel="stylesheet" href="styles/main.css" type="text/css" />
+    <title>Javier Rebolledo Portfolio</title>
+  </head>
+  <body>
+    <div class="cursor"></div>
+    <div class="container" id="container"></div>
+    <div id="c2" class="c2"></div>
+    <main class="grid">
+      <div class="about"><a>About</a></div>
+      <div class="intro">
+        <span class="name">Javier Rebolledo —  Is a</span>
+        <div class="strike-container"><span>Service</span></div>
+        <span>,</span>
+        <div class="strike-container"><span">UX/UI</span></div>
+        <span>,</span>
+        <div class="strike-container"><span>Product</span></div>
+        <span>,</span>
+        <span>Designer currently living in barcelona</span>
+      </div>
+
+      <section class="projects work">
+        <h3>Client Work</h3>
+        <a  class="project">
+          <p>1.</p>
+          <div class="project-hover" data-image="assets/portal.jpg" >HS Portal</div>
+          <p>20</p>
+        </a>
+        <a  class="project">
+          <p>2.</p>
+          <div class="project-hover" data-image="assets/bebbia.jpg" >Bebbia</div>
+          <p>20</p>
+        </a>
+        <a class="project">
+          <p>3.</p>
+          <div class="project-hover" data-image="assets/bamx.jpg" >Foodbank MX</div>
+          <p>19</p>
+        </a>
+      </section>
+
+      <section class="projects personal">
+        <h3>Personal Work</h3>
+        <a  class="project">
+          <p>4.</p>
+          <div class="project-hover" data-image="assets/unveil.jpg"><div class="underscore"> </div>Unveil</div>
+          <p>16</p>
+        </a>
+        <a  class="project">
+          <p>5.</p>
+          <div  class="project-hover" data-image="assets/unchained.jpg">Unchained</div>
+          <p>16</p>
+        </a>
+        <a class="project">
+          <p>6.</p>
+          <div class="project-hover" data-image="assets/family.jpg">Family CH</div>
+          <p>14</p>
+        </a>
+      </section>
+      <div class="marquee">
+        <marquee>
+          LET'S CHAT • LET'S CHAT • LET'S CHAT • LET'S CHAT • LET'S CHAT • LET'S
+          CHAT LET'S CHAT</marquee
+        >
+      </div>
+    </main>
+    
+    <script src="scripts/noise.js"></script>
+    <script src="scripts/sketch.js"></script>
+    <script>
+      const cursor = document.querySelector('.cursor');
+      let w = document.querySelector('.cursor').offsetWidth/2;
+      document.addEventListener('mousemove', e => {
+        cursor.setAttribute("style", "top:" + (e.pageY - w) + "px; left:" + (e.pageX - w) + "px;")
+      })
+
+    </script>
+
+  </body>
+</html>

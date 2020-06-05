@@ -1,0 +1,243 @@
+@import url(reset.css);
+@font-face {
+  font-family: founders;
+  src: url('../assets/FoundersGroteskTest-Regular.otf') format('opentype');
+}
+
+:root {
+  --bg: #e6e6e6;
+  --fg: #444444;
+  --ac: red;
+}
+
+body {
+  height: 100%;
+  background-color: var(--bg);
+  color: var(--fg);
+  font-family: founders;
+  z-index: -200;
+}
+
+.cursor {
+  position: absolute;
+  width: 3.5vw;
+  height: 3.5vw;
+  border: 0.2vw solid var(--fg);
+  background-color: var(--bg);
+  border-radius: 5vw;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.c2 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.grid {
+  padding-top: 5vw;
+  display: grid;
+  grid-template-columns: 1fr 12fr 1fr;
+  grid-template-rows: auto 1fr auto 1fr;
+  height: 100vh;
+  grid-row-gap: 10vw;
+}
+
+.grid > * {
+  grid-column: 2 / span 1;
+}
+
+.about {
+  font-size: 4.5vw;
+}
+/* Intro paragrarph */
+
+.intro {
+  font-size: 7vw;
+  align-self: end;
+  line-height: 130%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.name {
+  margin-right: 5vw;
+}
+
+.strike-container {
+  position: relative;
+  /* margin-left: 1vw; */
+}
+
+.strike-container :after {
+  display: block;
+  content: '';
+  height: 0.6vw;
+  width: 100%;
+  background-color: var(--fg);
+  position: absolute;
+  top: 38%;
+}
+
+.work {
+  justify-self: center;
+  align-self: end;
+}
+
+.personal,
+.about {
+  justify-self: end;
+}
+
+.projects h3 {
+  font-size: 4vw;
+}
+
+a:hover {
+  color: var(--ac);
+}
+
+.project {
+  display: flex;
+  position: relative;
+  margin-top: 2vw;
+}
+
+.project-hover {
+  font-size: 10vw;
+  line-height: 100%;
+  margin-right: 2vw;
+}
+
+.project p {
+  font-size: 4vw;
+}
+
+.project :first-child {
+  position: absolute;
+  left: -5vw;
+  top: -1vw;
+}
+
+.project :last-child {
+  display: none;
+}
+
+.marquee {
+  border-top: 1px solid var(--fg);
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 4vw;
+  line-height: 100%;
+  font-size: 4vw;
+}
+
+@media screen and (min-width: 520px) {
+  :root {
+    cursor: none;
+  }
+  .cursor {
+    display: block;
+  }
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    grid-row-gap: 2vw;
+    padding-top: 1vw;
+    grid-template-rows: auto auto 1fr 2fr;
+  }
+
+  .about {
+    grid-column: -3 / span 1;
+    font-size: 1.5vw;
+  }
+
+  .intro {
+    font-size: 3vw;
+    grid-column: 3 / span 7;
+  }
+
+  .name {
+    margin-right: 3vw;
+  }
+
+  .strike-container :after {
+    height: 0.3vw;
+  }
+
+  .work {
+    justify-self: start;
+    grid-column: 3 / span 5;
+  }
+
+  .personal {
+    justify-self: end;
+    grid-column: span 5 / -2;
+  }
+
+  .projects h3,
+  .projects p {
+    font-size: 1vw;
+    letter-spacing: 0.05em;
+  }
+
+  .project {
+    margin-top: 0vw;
+    margin-bottom: 1vw;
+  }
+
+  .project :first-child {
+    left: -1vw;
+    top: -0.3vw;
+  }
+
+  .project-hover {
+    font-size: 4vw;
+    position: relative;
+  }
+
+  .project-hover:after {
+    display: block;
+    position: absolute;
+    bottom: 0.5vw;
+    left: 0;
+
+    content: '';
+    width: 0%;
+    height: 0.5vw;
+    background-color: var(--ac);
+  }
+
+  .project-hover:hover::after {
+    /* animation: underscore 0.5s forwards; */
+    transition-duration: 0.35s;
+    width: 100%;
+  }
+
+  @keyframes underscore {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+
+  .marquee {
+    display: none;
+  }
+}
