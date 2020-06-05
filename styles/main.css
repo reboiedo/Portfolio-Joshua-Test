@@ -19,7 +19,7 @@ body {
 }
 
 .cursor {
-  position: absolute;
+  position: fixed;
   width: 3.5vw;
   height: 3.5vw;
   border: 0.2vw solid var(--fg);

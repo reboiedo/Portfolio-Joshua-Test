@@ -71,11 +71,24 @@
     <script src="scripts/noise.js"></script>
     <script src="scripts/sketch.js"></script>
     <script>
-      const cursor = document.querySelector('.cursor');
-      let w = document.querySelector('.cursor').offsetWidth/2;
+      let cursorPosition = {x: 0, y: 0};
+      let position = {x: 0, y: 0};
+
       document.addEventListener('mousemove', e => {
-        cursor.setAttribute("style", "top:" + (e.pageY - w) + "px; left:" + (e.pageX - w) + "px;")
+        cursorPosition.x = e.clientX;
+        cursorPosition.y = e.clientY;
       })
+
+      function onRender(){
+        position.x += (cursorPosition.x - position.x)*0.35;
+        position.y += (cursorPosition.y - position.y)*0.35;
+        const cursor = document.querySelector('.cursor');
+        let w = document.querySelector('.cursor').offsetWidth/2;
+        cursor.setAttribute("style", "top:" + (position.y - w) + "px; left:" + (position.x - w) + "px;")
+        window.requestAnimationFrame(onRender);
+      }
+
+      window.requestAnimationFrame(onRender);
 
     </script>
 
